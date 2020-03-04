@@ -12,8 +12,8 @@ export class TotalPipe implements PipeTransform {
       if (args[0] === 'totalHt') {
         return value.totalHt();
       }
-      if (args[0] === 'totalTttc') {
-        return value.totalTttc();
+      if (args[0] === 'totalTtc') {
+        return value.totalTtc();
       }
 
     }

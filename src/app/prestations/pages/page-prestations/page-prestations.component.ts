@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrestationsService } from '../../services/prestations.service';
 import { Prestation } from 'src/app/shared/model/prestation';
 import { Observable } from 'rxjs';
+import { State } from 'src/app/shared/enums/state.enum';
 
 @Component({
   selector: 'app-page-prestations',
@@ -22,6 +23,9 @@ export class PagePrestationsComponent implements OnInit {
     'State'
   ];
 
+  public states = Object.values(State);
+  // public states = State; read to use pipe keyvalue
+
   constructor(private prestationsService: PrestationsService) { }
 
   ngOnInit(): void {
@@ -33,6 +37,13 @@ export class PagePrestationsComponent implements OnInit {
     // );
     this.collection$ = this.prestationsService.collection;
 
+  }
+
+  public changeState(item: Prestation, event) {
+    console.log(event.target.value);
+    this.prestationsService.updateState(item, event.target.value).subscribe((res: Prestation) => {
+      item.state = res.state;
+    });
   }
 
 }
