@@ -1,0 +1,89 @@
+{
+  "prestations": [
+    {
+      "id": 1,
+      "typePresta": "Coaching",
+      "client": "Modis",
+      "tjmHt": 1200,
+      "nbJours": 10,
+      "tva": 20,
+      "state": "Option",
+      "comment": "Merci Modis pour les 1.2k jour"
+    },
+    {
+      "id": 2,
+      "typePresta": "Coaching",
+      "client": "Capgemini",
+      "tjmHt": 1200,
+      "nbJours": 20,
+      "tva": 20,
+      "state": "Confirmé",
+      "comment": "Merci Capgemini pour les 1.2k jour"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Nikki3rdDay",
+      "email": "contact@nikki.com",
+      "image": "../../../assets/img/logo2.jpg",
+      "state": "Actif",
+      "id": 1
+    },
+    {
+      "name": "NikkiInLove",
+      "email": "contact@nikki.fr",
+      "image": "../../../assets/img/logo3.jpg",
+      "state": "Actif",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Christophe",
+      "email": "christophe@gmail.com",
+      "image": "../../../../assets/img/chris.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 4,
+      "name": "Chris",
+      "email": "chris@gmail.com",
+      "image": "../../../../assets/img/christ.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 5,
+      "name": "Antony",
+      "email": "antony@gmail.com",
+      "image": "../../../../assets/img/antho.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 6,
+      "name": "Cédric",
+      "email": "cedric@gmail.com",
+      "image": "../../../../assets/img/cedric.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 7,
+      "name": "Melvin",
+      "email": "melvin@gmail.com",
+      "image": "../../../../assets/img/melvin.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 8,
+      "name": "Alex",
+      "email": "alex@gmail.com",
+      "image": "../../../../assets/img/alex.JPG",
+      "state": "Actif"
+    },
+    {
+      "id": 9,
+      "name": "Ali",
+      "email": "ali@gmail.com",
+      "image": "../../../../assets/img/ali.JPG",
+      "state": "Actif"
+    }
+  ]
+}

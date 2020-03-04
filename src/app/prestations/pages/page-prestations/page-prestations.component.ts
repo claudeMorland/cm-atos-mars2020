@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PrestationsService } from '../../services/prestations.service';
+import { Prestation } from 'src/app/shared/model/prestation';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-page-prestations',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagePrestationsComponent implements OnInit {
 
-  constructor() { }
+  public collection$: Observable<Prestation[]>;
+
+  public headers = [
+    'Type',
+    'Client',
+    'NbJours',
+    'TjmHT',
+    'Total HT',
+    'Total TTC',
+    'State'
+  ];
+
+  constructor(private prestationsService: PrestationsService) { }
 
   ngOnInit(): void {
+    // this.prestationsService.collection.subscribe(
+    //     (datas) => {
+    //        this.collection = datas;
+    //     }
+
+    // );
+    this.collection$ = this.prestationsService.collection;
+
   }
 
 }
