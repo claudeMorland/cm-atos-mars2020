@@ -1,8 +1,8 @@
 <header class="fixed-top">
-  <!-- <fa-icon [icon]="faBars" (click)="toggle()"></fa-icon> -->
+  <fa-icon [icon]="faBars" (click)="toggle()"></fa-icon>
   <ng-content select=".header"></ng-content>
 </header>
-<main>
+<main [ngClass]="{'close-aside': !open}">
   <div class="shadow position-fixed">
   </div>
   <aside>
@@ -12,6 +12,7 @@
   </aside>
   <div class="page">
     <div class="contents">
+      <ng-content select=".contents"></ng-content>
     </div>
     <footer>
       <ng-content select=".footer"></ng-content>
