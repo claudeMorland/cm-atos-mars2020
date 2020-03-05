@@ -1,18 +1,16 @@
 @import 'theme';
 @import 'fonts';
-
 div {
   padding: 2rem;
   background: $color2;
   h1 {
-    font-size: h1-fz;
+    font-size: $h1-fz;
     color: $light-color;
     margin-top: 0;
   }
-  p{
+  p {
     font-size: $regular-fz;
     color: $light-color;
     margin-bottom: 0;
   }
-
 }

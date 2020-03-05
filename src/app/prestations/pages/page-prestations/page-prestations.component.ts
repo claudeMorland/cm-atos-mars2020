@@ -3,6 +3,7 @@ import { PrestationsService } from '../../services/prestations.service';
 import { Prestation } from 'src/app/shared/model/prestation';
 import { Observable } from 'rxjs';
 import { State } from 'src/app/shared/enums/state.enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-prestations',
@@ -22,11 +23,17 @@ export class PagePrestationsComponent implements OnInit {
     'Total TTC',
     'State'
   ];
+  public title: string;
+  public subtitle: string;
+  public label:string;
+  public route: string;
+
+  public externalLink: string;
 
   public states = Object.values(State);
   // public states = State; read to use pipe keyvalue
 
-  constructor(private prestationsService: PrestationsService) { }
+  constructor(private prestationsService: PrestationsService, private activedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
     // this.prestationsService.collection.subscribe(
@@ -35,8 +42,20 @@ export class PagePrestationsComponent implements OnInit {
     //     }
 
     // );
+
+
     this.collection$ = this.prestationsService.collection;
 
+    this.activedRoute.data.subscribe((datas) => {
+      console.log(datas);
+      this.title = datas.title;
+
+      this.subtitle = datas.subtitle;
+    })
+
+    this.label = 'Ajouter une prestation';
+    this.route = 'add';
+    this.externalLink = 'https://www.google.fr';
   }
 
   public changeState(item: Prestation, event) {

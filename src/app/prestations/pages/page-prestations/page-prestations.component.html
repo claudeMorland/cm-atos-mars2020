@@ -1,4 +1,4 @@
-<div>
+<app-template-b [title]="title" [subtitle]="subtitle">
     <app-tableau-dark [headers]="headers">
 
       <tr *ngFor="let item of collection$ | async as collection">
@@ -17,4 +17,6 @@
         </td>
       </tr>
     </app-tableau-dark>
-</div>
+
+    <app-button [label]="label" [route]="route"></app-button> <app-button [label]="label" [externalLink]="externalLink"></app-button>
+</app-template-b>

@@ -7,6 +7,7 @@ import { TemplateBComponent } from './template-b/template-b.component';
 
 @NgModule({
   declarations: [TemplateAComponent, TemplateBComponent],
+  exports: [TemplateAComponent, TemplateBComponent],
   imports: [
     CommonModule
   ]
