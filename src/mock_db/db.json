@@ -7,7 +7,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "Annulé",
+      "state": "Option",
       "comment": "Merci Modis pour les 1.2k jour"
     },
     {
@@ -17,7 +17,7 @@
       "tjmHt": 1200,
       "nbJours": 20,
       "tva": 20,
-      "state": "Option",
+      "state": "Confirmé",
       "comment": "Merci Capgemini pour les 1.2k jour"
     }
   ],
