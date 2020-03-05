@@ -11,7 +11,7 @@ export class StateDirective implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    console.log(this.appState);
+    //console.log(this.appState);
     this.classTd = this.formatClass(this.appState);
   }
 
