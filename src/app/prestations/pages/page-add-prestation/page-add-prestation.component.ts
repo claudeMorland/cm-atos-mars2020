@@ -9,11 +9,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PageAddPrestationComponent implements OnInit {
 
+  public title: string;
+  public subtitle: string;
+
   constructor(private prestationService: PrestationsService,
     private router: Router,
     private acRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.acRoute.data.subscribe((datas) => {
+      console.log(datas);
+      this.title = datas.title;
+
+      this.subtitle = datas.subtitle;
+    });
+
   }
 
 public addItem(item: any) {

@@ -51,7 +51,7 @@ export class PagePrestationsComponent implements OnInit {
       this.title = datas.title;
 
       this.subtitle = datas.subtitle;
-    })
+    });
 
     this.label = 'Ajouter une prestation';
     this.route = 'add';
