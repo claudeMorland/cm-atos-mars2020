@@ -1,7 +1,7 @@
 <app-template-b [title]="title" [subtitle]="subtitle">
     <app-tableau-dark [headers]="headers">
 
-      <tr *ngFor="let item of collection$ | async as collection">
+      <tr (click)="edit(item)" *ngFor="let item of collection$ | async as collection">
         <!-- <td>{{ collection | json }}</!-->
         <td>{{ item.typePresta }}</td>
         <td>{{ item.client }}</td>
@@ -10,13 +10,16 @@
         <td>{{ item | total : 'totalHt' | currency: 'EUR' }}</td>
         <td>{{ item | total : 'totalTtc' | currency: 'EUR'  }}</td>
         <td [appState]="item.state">
-           <select (change)="changeState(item, $event)">
+           <select (click)="$event.stopPropagation()" (change)="changeState(item, $event)">
              <!-- <option *ngFor="let state of states | keyvalue" [value]="state.key">{{ state.value }}</option> -->
              <option *ngFor="let state of states " [value]="state" [selected]="state === item.state">{{ state }}</option>
            </select>
         </td>
         <td>
           <fa-icon [icon]="faTrash" (click)="delete(item)"></fa-icon>
+        </td>
+        <td>
+          <fa-icon [icon]="faEdit" (click)="edit(item)"></fa-icon>
         </td>
       </tr>
     </app-tableau-dark>

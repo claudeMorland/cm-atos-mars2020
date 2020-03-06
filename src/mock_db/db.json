@@ -1,7 +1,7 @@
 {
   "prestations": [
     {
-      "typePresta": "bnbn",
+      "typePresta": "bnbn-modified",
       "client": "bnbn",
       "tjmHt": 1200,
       "nbJours": null,
@@ -11,7 +11,7 @@
       "id": 3
     },
     {
-      "typePresta": "ABC",
+      "typePresta": "ABC-MODIFIED-2",
       "client": "client",
       "tjmHt": 1200,
       "nbJours": 1,

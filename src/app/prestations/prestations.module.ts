@@ -5,11 +5,12 @@ import { PrestationsRoutingModule } from './prestations-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PageAddPrestationComponent } from './pages/page-add-prestation/page-add-prestation.component';
 import { FormPrestationComponent } from './components/form-prestation/form-prestation.component';
+import { PageEditPrestationComponent } from './pages/page-edit-prestation/page-edit-prestation.component';
 
 
 
 @NgModule({
-  declarations: [PagePrestationsComponent, PageAddPrestationComponent, FormPrestationComponent],
+  declarations: [PagePrestationsComponent, PageAddPrestationComponent, FormPrestationComponent, PageEditPrestationComponent],
   imports: [
     CommonModule,
     PrestationsRoutingModule,

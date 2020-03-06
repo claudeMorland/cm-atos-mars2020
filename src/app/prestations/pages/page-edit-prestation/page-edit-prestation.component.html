@@ -1,0 +1,3 @@
+<app-template-a [title]="title" [subtitle]="subtitle">
+  <app-form-prestation *ngIf="item$ | async as item" [itemPresta]="item" (emitItem)="updateItem($event)"></app-form-prestation>
+</app-template-a>

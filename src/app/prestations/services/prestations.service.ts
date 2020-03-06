@@ -64,5 +64,7 @@ export class PrestationsService {
 
   // deleteItemInCollection
 
-  // getItemByIdFromCollection
+  public getItemById(id: string) {
+    return this.http.get<Prestation>(`${environment.urlApi}prestations/${id}`);
+  }
 }

@@ -4,7 +4,7 @@ import { Prestation } from 'src/app/shared/model/prestation';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { State } from 'src/app/shared/enums/state.enum';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-page-prestations',
@@ -16,6 +16,7 @@ export class PagePrestationsComponent implements OnInit {
   public collection$ = new BehaviorSubject<Prestation[]>(null);  // on peut utiliser egalement Subject puisque l'on a pas besoin de stocker la valeur
 
   public faTrash = faTrash;
+  public faEdit = faEdit;
 
   public headers = [
     'Type',
@@ -25,7 +26,8 @@ export class PagePrestationsComponent implements OnInit {
     'Total HT',
     'Total TTC',
     'State',
-    'Delete'
+    'Delete',
+    'Edit'
   ];
   public title: string;
   public subtitle: string;
@@ -79,6 +81,11 @@ export class PagePrestationsComponent implements OnInit {
         this.reloadDatas();
       }
     )
+  }
+
+  public edit(item: Prestation) {
+    console.log('edit');
+    this.router.navigate(['prestations/edit',item.id]);
   }
 
   private reloadDatas() {
