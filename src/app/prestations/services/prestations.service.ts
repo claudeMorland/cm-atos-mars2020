@@ -14,6 +14,7 @@ export class PrestationsService {
 
 
 
+
   private pCollection$: Observable<Prestation[]>;
 
   constructor(private http: HttpClient) {
@@ -36,7 +37,11 @@ export class PrestationsService {
   }
 
   public update(item: Prestation) {
-    return this.http.patch(`${environment.urlApi}prestations/${item.id}`, item);
+    return this.http.patch<Prestation>(`${environment.urlApi}prestations/${item.id}`, item);
+  }
+
+  delete(item: Prestation) {
+    return this.http.delete<Prestation>(`${environment.urlApi}prestations/${item.id}`);
   }
 
   public add(item: any) {

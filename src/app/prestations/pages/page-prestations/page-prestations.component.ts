@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestationsService } from '../../services/prestations.service';
 import { Prestation } from 'src/app/shared/model/prestation';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { State } from 'src/app/shared/enums/state.enum';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-page-prestations',
@@ -12,7 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PagePrestationsComponent implements OnInit {
 
-  public collection$: Observable<Prestation[]>;
+  public collection$ = new BehaviorSubject<Prestation[]>(null);  // on peut utiliser egalement Subject puisque l'on a pas besoin de stocker la valeur
+
+  public faTrash = faTrash;
 
   public headers = [
     'Type',
@@ -21,7 +24,8 @@ export class PagePrestationsComponent implements OnInit {
     'TjmHT',
     'Total HT',
     'Total TTC',
-    'State'
+    'State',
+    'Delete'
   ];
   public title: string;
   public subtitle: string;
@@ -33,7 +37,8 @@ export class PagePrestationsComponent implements OnInit {
   public states = Object.values(State);
   // public states = State; read to use pipe keyvalue
 
-  constructor(private prestationsService: PrestationsService, private activedRoute : ActivatedRoute) { }
+  constructor(private prestationsService: PrestationsService, private activedRoute : ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     // this.prestationsService.collection.subscribe(
@@ -44,7 +49,9 @@ export class PagePrestationsComponent implements OnInit {
     // );
 
 
-    this.collection$ = this.prestationsService.collection;
+   // this.collection$ = this.prestationsService.collection;   => observable
+
+    this.reloadDatas();
 
     this.activedRoute.data.subscribe((datas) => {
       console.log(datas);
@@ -62,6 +69,22 @@ export class PagePrestationsComponent implements OnInit {
     console.log(event.target.value);
     this.prestationsService.updateState(item, event.target.value).subscribe((res: Prestation) => {
       item.state = res.state;
+    });
+  }
+
+  public delete(item: Prestation) {
+    this.prestationsService.delete(item).subscribe(
+      (res: Prestation) => {
+        console.log(res);
+        this.reloadDatas();
+      }
+    )
+  }
+
+  private reloadDatas() {
+    this.prestationsService.collection.subscribe((datas) =>
+    {
+      this.collection$.next(datas);
     });
   }
 
