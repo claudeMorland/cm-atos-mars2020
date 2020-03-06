@@ -16,13 +16,21 @@
            </select>
         </td>
         <td>
-          <fa-icon [icon]="faTrash" (click)="delete(item)"></fa-icon>
+          <fa-icon (click)="$event.stopPropagation()" [icon]="faTrash" (click)="delete(item)"></fa-icon>
         </td>
         <td>
-          <fa-icon [icon]="faEdit" (click)="edit(item)"></fa-icon>
+          <fa-icon (click)="$event.stopPropagation()" [icon]="faEdit" (click)="edit(item)"></fa-icon>
+        </td>
+        <td>
+          <fa-icon (click)="$event.stopPropagation()" [icon]="faAlignCenter" (click)="details(item)"></fa-icon>
         </td>
       </tr>
     </app-tableau-dark>
 
-    <app-button [label]="label" [route]="route"></app-button> <app-button [label]="label" [externalLink]="externalLink"></app-button>
+    <app-button [label]="label" [route]="route"></app-button>
+    <app-button [label]="label" [externalLink]="externalLink"></app-button>
+
+    <app-nav-inline [list]="listLinks"></app-nav-inline>
+    <router-outlet></router-outlet>
+
 </app-template-b>

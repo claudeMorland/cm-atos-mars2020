@@ -19,6 +19,16 @@
       "state": "Confirmé",
       "comment": "test",
       "id": 4
+    },
+    {
+      "typePresta": "cmd3",
+      "client": "client",
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Annulé",
+      "comment": "test",
+      "id": 5
     }
   ],
   "clients": [

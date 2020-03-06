@@ -4,7 +4,7 @@ import { Prestation } from 'src/app/shared/model/prestation';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { State } from 'src/app/shared/enums/state.enum';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-page-prestations',
@@ -17,7 +17,7 @@ export class PagePrestationsComponent implements OnInit {
 
   public faTrash = faTrash;
   public faEdit = faEdit;
-
+  public faAlignCenter = faAlignCenter;
   public headers = [
     'Type',
     'Client',
@@ -27,12 +27,15 @@ export class PagePrestationsComponent implements OnInit {
     'Total TTC',
     'State',
     'Delete',
-    'Edit'
+    'Edit',
+    'details'
   ];
   public title: string;
   public subtitle: string;
   public label:string;
   public route: string;
+
+  public listLinks: {route: string, label: string}[];
 
   public externalLink: string;
 
@@ -52,6 +55,10 @@ export class PagePrestationsComponent implements OnInit {
 
 
    // this.collection$ = this.prestationsService.collection;   => observable
+
+    this.listLinks =
+    [{route: 'details', label: 'détails'},
+     {route: 'comments', label: 'comments'}];
 
     this.reloadDatas();
 
@@ -86,6 +93,10 @@ export class PagePrestationsComponent implements OnInit {
   public edit(item: Prestation) {
     console.log('edit');
     this.router.navigate(['prestations/edit',item.id]);
+  }
+
+  public details(item: Prestation) {
+    this.prestationsService.setDetails(item);
   }
 
   private reloadDatas() {

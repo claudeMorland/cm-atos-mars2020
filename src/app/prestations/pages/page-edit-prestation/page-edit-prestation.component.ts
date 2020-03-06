@@ -29,19 +29,19 @@ export class PageEditPrestationComponent implements OnInit {
       this.subtitle = datas.subtitle;
     });
 
-    this.acRoute.paramMap.subscribe(
-      (params) => {
+    // this.acRoute.paramMap.subscribe(
+    //   (params) => {
 
-        console.log(params.get('id'));
+    //     console.log(params.get('id'));
 
-        this.item$ = this.prestationService.getItemById(params.get('id'));
+    //     this.item$ = this.prestationService.getItemById(params.get('id'));
 
-        // this.prestationService.getItemById(params.get('id')).subscribe((item: any) =>
-        //   {
-        //     this.item = item;
-        //   });
-      }
-    );
+    //     // this.prestationService.getItemById(params.get('id')).subscribe((item: any) =>
+    //     //   {
+    //     //     this.item = item;
+    //     //   });
+    //   }
+    // );
     // switchMap fait le subscribe de this.acRoute.paramMap
     this.item$ = this.acRoute.paramMap.pipe(
     switchMap((params: ParamMap) => {

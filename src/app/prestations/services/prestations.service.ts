@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Prestation } from 'src/app/shared/model/prestation';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { State } from 'src/app/shared/enums/state.enum';
@@ -13,9 +13,11 @@ import { State } from 'src/app/shared/enums/state.enum';
 export class PrestationsService {
 
 
+public itemDetail$ = new BehaviorSubject<Prestation>(null);
 
 
   private pCollection$: Observable<Prestation[]>;
+
 
   constructor(private http: HttpClient) {
       this.collection = this.http.get<Prestation[]>(`${environment.urlApi}prestations`).pipe(
@@ -37,6 +39,7 @@ export class PrestationsService {
   }
 
   public update(item: Prestation) {
+    console.log('update ...');
     return this.http.patch<Prestation>(`${environment.urlApi}prestations/${item.id}`, item);
   }
 
@@ -66,5 +69,10 @@ export class PrestationsService {
 
   public getItemById(id: string) {
     return this.http.get<Prestation>(`${environment.urlApi}prestations/${id}`);
+  }
+
+  setDetails(item: Prestation) {
+    console.log("itemDetail");
+    this.itemDetail$.next(item);
   }
 }
