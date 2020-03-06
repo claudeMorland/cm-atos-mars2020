@@ -12,6 +12,11 @@ const appRoutes: Routes = [
     data: { title: 'Prestations', subtitle: 'Toutes les prestations' },
     children: [
       {
+        path: '',
+        redirectTo : 'details',
+        pathMatch: 'full'
+      },
+      {
         path: 'details',
         component: DetailsComponent
       },

@@ -24,6 +24,7 @@ public itemDetail$ = new BehaviorSubject<Prestation>(null);
         //map(tab => tab.map(objJson => new Prestation(objJson) ))
         map(
           (tab) => {
+             this.itemDetail$.next(tab[0]);
              return tab.map((objJson) => {
                return new Prestation(objJson);
              })
