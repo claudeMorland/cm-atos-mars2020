@@ -19,6 +19,26 @@
       "tva": 20,
       "state": "Confirmé",
       "comment": "Merci Capgemini pour les 1.2k jour"
+    },
+    {
+      "typePresta": "bnbn",
+      "client": "bnbn",
+      "tjmHt": 1200,
+      "nbJours": null,
+      "tva": null,
+      "state": "Option",
+      "comment": null,
+      "id": 3
+    },
+    {
+      "typePresta": "ABC",
+      "client": "client",
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Option",
+      "comment": "COMMENT",
+      "id": 4
     }
   ],
   "clients": [

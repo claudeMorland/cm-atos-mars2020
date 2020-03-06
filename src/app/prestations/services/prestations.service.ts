@@ -13,6 +13,7 @@ import { State } from 'src/app/shared/enums/state.enum';
 export class PrestationsService {
 
 
+
   private pCollection$: Observable<Prestation[]>;
 
   constructor(private http: HttpClient) {
@@ -36,6 +37,10 @@ export class PrestationsService {
 
   public update(item: Prestation) {
     return this.http.patch(`${environment.urlApi}prestations/${item.id}`, item);
+  }
+
+  public add(item: any) {
+    return this.http.post(`${environment.urlApi}prestations`, item);
   }
 
   public get collection(): Observable<Prestation[]> {

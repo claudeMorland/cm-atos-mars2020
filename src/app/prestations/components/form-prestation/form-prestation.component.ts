@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { State } from 'src/app/shared/enums/state.enum';
 import { Prestation } from 'src/app/shared/model/prestation';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-prestation',
@@ -22,8 +22,14 @@ export class FormPrestationComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      typePresta: [this.itemPresta.typePresta],
-      client: [this.itemPresta.client],
+      typePresta: [
+        this.itemPresta.typePresta,
+          Validators.required
+      ],
+      client: [this.itemPresta.client
+      ,  Validators.compose([Validators.required, Validators.minLength(2)])
+
+      ],
       tjmHt:[this.itemPresta.tjmHt],
       nbJours: [this.itemPresta.nbJours],
       tva: [this.itemPresta.tva],
@@ -34,8 +40,8 @@ export class FormPrestationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
-    this.emitItem.emit()
+    //console.log(this.form.value);
+    this.emitItem.emit(this.form.value);
   }
 
 }

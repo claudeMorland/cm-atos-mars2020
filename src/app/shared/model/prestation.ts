@@ -6,8 +6,8 @@ export class Prestation implements PrestationI {
   typePresta: string;
   client: string;
   tjmHt = 1200;
-  nbJours: 1;
-  tva: 20;
+  nbJours= 1;
+  tva = 20;
   state = State.OPTION;
   comment: string;
 
